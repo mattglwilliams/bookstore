@@ -4,12 +4,14 @@ import Books from "./pages/Books";
 import Magazines from "./pages/Magazines";
 import Ebooks from "./pages/Ebooks";
 import Account from "./pages/Account";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<Books />} />

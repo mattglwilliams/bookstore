@@ -1,14 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
-import data from "../data.json";
 import FeaturedCard from "../components/FeaturedCard";
 
 function Home() {
-  const [cardData] = useState(data.items);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const featuredBooks = [];
-  for (let i = cardData.length - 2; i < cardData.length; i++) {
-    featuredBooks.push(cardData[i]);
+
+  useEffect(() => {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=HTML5`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        return response.json();
+      })
+      .then((actualData) => {
+        setData(actualData);
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setData(null);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  if (!loading) {
+    for (let i = data.items.length - 2; i < data.items.length; i++) {
+      featuredBooks.push(data.items[i]);
+    }
   }
+
   return (
     <div>
       <p>
@@ -21,7 +49,7 @@ function Home() {
         voluptatum omnis? Omnis deserunt neque perspiciatis adipisci unde,
         numquam odit.
       </p>
-      <section className="featured">
+      <section className="featured-container">
         <h2>Featured</h2>
         <div className="featured-cards">
           {featuredBooks.map((card) => {

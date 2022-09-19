@@ -99,6 +99,57 @@ nav > .checkbox:checked ~ .nav-links {
   align-items: center;
 }
 
+.category-content {
+  margin: 2em;
+}
+
+.items-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .featured-container {
-  border: 5px solid #000000;
+  background-color: #e2dfdf;
+  margin-bottom: 1em;
+}
+
+.featured-container > h2 {
+  text-align: center;
+  padding: 0.5em;
+}
+
+.featured-cards {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+.featured-card {
+  margin: 0.5em 1em;
+  align-items: center;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.items-container {
+  margin-bottom: 1em;
+}
+
+.items-cards {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+.item-card {
+  margin: 0.5em 1em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+.item-content {
+  text-align: left;
+  margin-left: 0.75em;
 }

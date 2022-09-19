@@ -18,7 +18,7 @@ function FeaturedCard(props) {
   return (
     <button className="featured-card" key={props.key}>
       <img src={props.image} alt="This is an image of the book" />
-      <h2>{props.title}</h2>
+      <h3>{props.title}</h3>
       <p className="featured-authors">Authors: {props.authors}</p>
       <p className="featured-pages">Pages: {props.pages}</p>
       <p className="featured-description">

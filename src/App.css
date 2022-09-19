@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-color: #6f76b7;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 2em 0 2.5em 0;
+}
+
+header > h1 {
+  margin: 0;
+}
+
+nav {
+  z-index: 1;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 2.7em;
 }
 
-.App-link {
-  color: #61dafb;
+nav > .checkbox {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 3em;
+  height: 3em;
+  opacity: 0;
+  top: 80px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-links {
+  display: none;
+}
+
+.nav-links > div > div > a {
+  font-size: 2em;
+  margin-top: 0.25em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.hamburger-container {
+  display: block;
+  height: 2.8em;
+  width: 2.2em;
+  position: absolute;
+  top: 80px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1em;
+}
+
+.hamburger-container .line {
+  display: block;
+  height: 0.3em;
+  width: 100%;
+  border-radius: 0.5em;
+  background: #000000;
+}
+
+/* Hamburger transistion to X */
+nav > .hamburger-container .line-one {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+nav > .hamburger-container .line-two {
+  transition: transform 0.2s ease-in-out;
+}
+nav > .hamburger-container .line-three {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+nav > .checkbox:checked + .hamburger-container .line-one {
+  transform: rotate(45deg);
+}
+nav > .checkbox:checked + .hamburger-container .line-two {
+  transform: scaleY(0);
+}
+nav > .checkbox:checked + .hamburger-container .line-three {
+  transform: rotate(-45deg);
+}
+
+/* Open menu items */
+nav > .checkbox:checked ~ .nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

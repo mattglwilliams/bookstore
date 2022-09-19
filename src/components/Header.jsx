@@ -1,12 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
+import "./../App.css";
 
 function Header() {
   return (
-    <div>
+    <header>
       <h1>The Book Store</h1>
       <Nav />
-    </div>
+    </header>
   );
 }
 

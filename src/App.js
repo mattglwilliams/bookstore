@@ -5,6 +5,7 @@ import Magazines from "./pages/Magazines";
 import Ebooks from "./pages/Ebooks";
 import Account from "./pages/Account";
 import Header from "./components/Header";
+import Social from "./components/Social";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/ebooks" element={<Ebooks />} />
           <Route path="/account" element={<Account />} />
         </Routes>
+        <Social />
       </Router>
     </div>
   );

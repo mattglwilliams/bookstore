@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import FeaturedCard from "../components/FeaturedCard";
+import BookCard from "../components/BookCard";
 
 function Home() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const featuredBooks = [];
+  const books = [];
 
   useEffect(() => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=HTML5`)
@@ -35,6 +37,9 @@ function Home() {
     for (let i = data.items.length - 2; i < data.items.length; i++) {
       featuredBooks.push(data.items[i]);
     }
+    for (let i = 0; i < data.items.length - 2; i++) {
+      books.push(data.items[i]);
+    }
   }
 
   return (
@@ -55,6 +60,22 @@ function Home() {
           {featuredBooks.map((card) => {
             return (
               <FeaturedCard
+                title={card.volumeInfo.title}
+                key={card.volumeInfo.title}
+                authors={card.volumeInfo.authors}
+                pages={card.volumeInfo.pageCount}
+                image={card.volumeInfo.imageLinks.thumbnail}
+                description={card.volumeInfo.description}
+              />
+            );
+          })}
+        </div>
+      </section>
+      <section className="books-container">
+        <div className="book-cards">
+          {books.map((card) => {
+            return (
+              <BookCard
                 title={card.volumeInfo.title}
                 key={card.volumeInfo.title}
                 authors={card.volumeInfo.authors}

@@ -12,25 +12,21 @@ function Nav() {
         <span className="line line-three"></span>
       </div>
       <div className="nav-links">
-        <div>
-          <div>
-            <NavLink to="/" activeclassname="active">
-              <span className="nav-text">Home</span>
-            </NavLink>
-            <NavLink to="/books" activeclassname="active">
-              <span className="nav-text">Books</span>
-            </NavLink>
-            <NavLink to="/magazines" activeclassname="active">
-              <span className="nav-text">Magazines</span>
-            </NavLink>
-            <NavLink to="/ebooks" activeclassname="active">
-              <span className="nav-text">E-Books</span>
-            </NavLink>
-            <NavLink to="/account" activeclassname="active">
-              <span className="nav-text">Account</span>
-            </NavLink>
-          </div>
-        </div>
+        <NavLink to="/" activeclassname="active">
+          <span className="nav-text">Home</span>
+        </NavLink>
+        <NavLink to="/books" activeclassname="active">
+          <span className="nav-text">Books</span>
+        </NavLink>
+        <NavLink to="/magazines" activeclassname="active">
+          <span className="nav-text">Magazines</span>
+        </NavLink>
+        <NavLink to="/ebooks" activeclassname="active">
+          <span className="nav-text">E-Books</span>
+        </NavLink>
+        <NavLink to="/account" activeclassname="active">
+          <span className="nav-text">Account</span>
+        </NavLink>
       </div>
     </nav>
   );

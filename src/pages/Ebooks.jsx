@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import FeaturedCard from "../components/FeaturedCard";
 import Data from "./../data.json";
 
 function Ebooks() {
   const [bookData] = useState(Data);
-  const [selected, setSelected] = useState();
   const featuredItems = [];
   const remainingItems = [];
   for (let i = bookData.items.length - 2; i < bookData.items.length; i++) {
@@ -13,10 +13,6 @@ function Ebooks() {
   for (let i = 0; i < bookData.items.length - 2; i++) {
     remainingItems.push(bookData.items[i]);
   }
-
-  const handleClick = (event) => {
-    event.currentTarget.classList.toggle("bg-salmon");
-  };
 
   return (
     <div className="container">
@@ -32,28 +28,14 @@ function Ebooks() {
           <div className="featured-cards">
             {featuredItems.map((card) => {
               return (
-                <button
-                  className="featured-card"
+                <FeaturedCard
+                  title={card.volumeInfo.title}
                   key={card.volumeInfo.title}
-                  onClick={handleClick}
-                >
-                  <img
-                    src={card.volumeInfo.imageLinks.thumbnail}
-                    alt="This is an image of the book"
-                  />
-                  <h3>{card.volumeInfo.title}</h3>
-                  <p className="featured-authors">
-                    Authors: {card.volumeInfo.authors}
-                  </p>
-                  <p className="featured-pages">
-                    Pages: {card.volumeInfo.pageCount}
-                  </p>
-                  <p className="featured-description">
-                    {card.volumeInfo.description
-                      ? card.volumeInfo.description.substring(0, 140) + "..."
-                      : "No description"}
-                  </p>
-                </button>
+                  image={card.volumeInfo.imageLinks.thumbnail}
+                  description={card.volumeInfo.description}
+                  authors={card.volumeInfo.authors}
+                  pages={card.volumeInfo.pageCount}
+                />
               );
             })}
           </div>

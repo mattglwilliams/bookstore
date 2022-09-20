@@ -35,7 +35,7 @@ function Books() {
 
   if (!loading) {
     for (let i = 0; i < data.items.length; i++) {
-      if (data[i].volumeInfo.pageCount > 1) {
+      if (data[i].volumeInfo.printType === "BOOK") {
         books.push(data[i]);
       }
     }

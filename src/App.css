@@ -136,7 +136,15 @@ nav > .checkbox:checked ~ .nav-links {
   padding-bottom: 1.5em;
 }
 
-.featured-card {
+.featured-card-not-selected {
+  margin: 0.5em 1em;
+  align-items: center;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.featured-card-selected {
+  background-color: rgb(134, 208, 134);
   margin: 0.5em 1em;
   align-items: center;
   padding: 0.5em 1em;
@@ -211,6 +219,10 @@ nav > .checkbox:checked ~ .nav-links {
     font-size: 1.2em;
   }
 
+  .nav-links > a:hover {
+    background-color: rgb(134, 208, 134);
+  }
+
   .header-wrapper {
     display: flex;
     flex-direction: row;
@@ -255,7 +267,11 @@ nav > .checkbox:checked ~ .nav-links {
     flex: 1;
   }
 
-  .featured-card {
+  .featured-card-not-selected {
+    height: 350px;
+  }
+
+  .featured-card-selected {
     height: 350px;
   }
 

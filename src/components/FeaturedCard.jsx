@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from "react";
 
 function FeaturedCard(props) {
-  const [selected, setSelected] = useState("white");
-  const addSelected = () => {
-    return setSelected("green");
+  const [selected, setSelected] = useState(
+    localStorage.getItem(`selected-${props.title}`)
+  );
+
+  const handleClick = () => {
+    setSelected(!selected);
   };
+
   useEffect(() => {
-    const items = localStorage.getItem("selected");
-    if (items) {
-      const storedItems = JSON.parse(window.localStorage.getItem("selected"));
-      setSelected(storedItems);
-    }
+    const data = window.localStorage.getItem(`selected-${props.title}`);
+    if (data !== null) setSelected(JSON.parse(data));
   }, []);
+
   useEffect(() => {
-    const oldData = localStorage.getItem("selected");
-    if (oldData) {
-      const parsedOldData = JSON.parse(window.localStorage.getItem("selected"));
-      window.localStorage.setItem(
-        "selected",
-        JSON.stringify([...parsedOldData, selected])
-      );
-    } else {
-      window.localStorage.setItem("selected", JSON.stringify(selected));
-    }
+    window.localStorage.setItem(`selected-${props.title}`, selected);
   }, [selected]);
 
   return (
-    <button className="featured-card" onClick={addSelected}>
+    <button
+      className={`featured-card-${selected ? "selected" : "not-selected"}`}
+      onClick={handleClick}
+    >
       <img src={props.image} alt="This is an image of the book" />
       <h3>{props.title}</h3>
       <p className="featured-authors">Authors: {props.authors}</p>

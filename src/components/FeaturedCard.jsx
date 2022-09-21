@@ -20,7 +20,7 @@ function FeaturedCard(props) {
 
   return (
     <button
-      className={`featured-card-${selected ? "selected" : "not-selected"}`}
+      className={`featured-card ${selected ? "is-selected" : ""}`}
       onClick={handleClick}
     >
       <img src={props.image} alt="This is an image of the book" />

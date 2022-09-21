@@ -140,19 +140,15 @@ nav > .checkbox:checked ~ .nav-links {
   padding-bottom: 1.5em;
 }
 
-.featured-card-not-selected {
+.featured-card {
   margin: 0.5em 1em;
   align-items: center;
   padding: 0.5em 1em;
   cursor: pointer;
 }
 
-.featured-card-selected {
+.is-selected {
   background-color: rgb(134, 208, 134);
-  margin: 0.5em 1em;
-  align-items: center;
-  padding: 0.5em 1em;
-  cursor: pointer;
 }
 
 .items-cards {
@@ -161,16 +157,7 @@ nav > .checkbox:checked ~ .nav-links {
   margin-bottom: 2em;
 }
 
-.item-card-not-selected {
-  margin: 0.5em 1em;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-}
-
-.item-card-selected {
-  background-color: rgb(134, 208, 134);
+.item-card {
   margin: 0.5em 1em;
   padding: 0.5em 1em;
   cursor: pointer;
@@ -284,11 +271,7 @@ nav > .checkbox:checked ~ .nav-links {
     flex: 1;
   }
 
-  .featured-card-not-selected {
-    height: 350px;
-  }
-
-  .featured-card-selected {
+  .featured-card {
     height: 350px;
   }
 
@@ -302,13 +285,7 @@ nav > .checkbox:checked ~ .nav-links {
     flex-wrap: wrap;
   }
 
-  .item-card-not-selected {
-    flex-shrink: 1;
-    max-width: 45%;
-  }
-
-  .item-card-selected {
-    background-color: rgb(134, 208, 134);
+  .item-card {
     flex-shrink: 1;
     max-width: 45%;
   }

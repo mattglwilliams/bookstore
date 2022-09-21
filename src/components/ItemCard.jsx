@@ -19,7 +19,7 @@ function ItemCard(props) {
   }, [selected]);
   return (
     <button
-      className={`item-card-${selected ? "selected" : "not-selected"}`}
+      className={`item-card ${selected ? "is-selected" : ""}`}
       onClick={handleClick}
     >
       <img src={props.image} alt="This is an image of the Item" />

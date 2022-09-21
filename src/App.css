@@ -194,7 +194,7 @@ nav > .checkbox:checked ~ .nav-links {
 }
 
 /* tablet - desktop breakpoint */
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .hamburger-container {
     display: none;
   }
@@ -263,7 +263,7 @@ nav > .checkbox:checked ~ .nav-links {
   .all-items-container {
     display: flex;
     flex-direction: row;
-    margin: 0 5em;
+    margin: 0 2em;
   }
 
   .featured-container {
@@ -272,7 +272,7 @@ nav > .checkbox:checked ~ .nav-links {
   }
 
   .featured-card {
-    height: 350px;
+    height: 400px;
   }
 
   .items-container {
@@ -287,6 +287,16 @@ nav > .checkbox:checked ~ .nav-links {
 
   .item-card {
     flex-shrink: 1;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .item-card {
     max-width: 45%;
+  }
+
+  .all-items-container {
+    margin: 0 4em;
   }
 }

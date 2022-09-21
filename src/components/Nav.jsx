@@ -12,7 +12,7 @@ function Nav() {
         <span className="line line-three"></span>
       </div>
       <div className="nav-links">
-        <NavLink to="/" activeclassname="active">
+        <NavLink to="/" exact={true} activeclassname="active">
           <span className="nav-text">Home</span>
         </NavLink>
         <NavLink to="/books" activeclassname="active">
@@ -24,7 +24,7 @@ function Nav() {
         <NavLink to="/ebooks" activeclassname="active">
           <span className="nav-text">E-Books</span>
         </NavLink>
-        <NavLink to="/account" activeclassname="active">
+        <NavLink to="#" activeclassname="active">
           <span className="nav-text">Account</span>
         </NavLink>
       </div>

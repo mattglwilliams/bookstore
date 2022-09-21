@@ -64,10 +64,6 @@ nav > .checkbox {
   transition: 0.3s;
 }
 
-.active {
-  background-color: rgb(134, 208, 134, 50%);
-}
-
 .hamburger-container {
   display: block;
   height: 2.8em;
@@ -122,6 +118,7 @@ nav > .checkbox:checked ~ .nav-links {
   margin: 2em;
 }
 
+/* Book cards styling */
 .items-container {
   display: flex;
   flex-direction: column;
@@ -220,10 +217,6 @@ nav > .checkbox:checked ~ .nav-links {
   font-weight: 500;
 }
 
-.bg-salmon {
-  background-color: salmon;
-}
-
 .mobile-social-icons {
   display: flex;
   align-items: center;
@@ -237,7 +230,7 @@ nav > .checkbox:checked ~ .nav-links {
   color: #000;
 }
 
-/* tablet - desktop breakpoint */
+/* tablet breakpoint */
 @media (min-width: 700px) {
   .hamburger-container {
     display: none;
@@ -343,6 +336,7 @@ nav > .checkbox:checked ~ .nav-links {
   }
 }
 
+/* desktop breakpoint */
 @media (min-width: 1000px) {
   .item-card {
     max-width: 45%;

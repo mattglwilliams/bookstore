@@ -7,9 +7,12 @@ function Home() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // empty arrays to store the 2 featured books and then the rest of the books
   const featuredItems = [];
   const remainingItems = [];
 
+  // fetching the api data and storing it in the data state variable
   useEffect(() => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=HTML5`)
       .then((response) => {
@@ -34,9 +37,11 @@ function Home() {
   }, []);
 
   if (!loading) {
+    // looping through the last two items in the data and pushing them to the featuredItems array
     for (let i = data.items.length - 2; i < data.items.length; i++) {
       featuredItems.push(data.items[i]);
     }
+    // looping through the rest of the items in the data and pushing them to the remainingItems array
     for (let i = 0; i < data.items.length - 2; i++) {
       remainingItems.push(data.items[i]);
     }

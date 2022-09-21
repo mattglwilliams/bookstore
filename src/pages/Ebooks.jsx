@@ -6,8 +6,11 @@ function Ebooks() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // empty array to store the ebooks
   const ebooks = [];
 
+  // fetching the api data and storing it in the data state variable
   useEffect(() => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=HTML5`)
       .then((response) => {
@@ -32,6 +35,7 @@ function Ebooks() {
   }, []);
 
   if (!loading) {
+    // looping through the data and pushing all ebooks to the ebooks array
     for (let i = 0; i < data.items.length; i++) {
       if (data.items[i].saleInfo.isEbook === true) {
         ebooks.push(data.items[i]);

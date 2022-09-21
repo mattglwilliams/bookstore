@@ -1,3 +1,4 @@
+/* Font for "The Book Store" heading */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 * {
@@ -8,7 +9,6 @@
 
 /* Header / nav styling */
 header {
-  /* background-color: #6f76b7; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,6 +59,10 @@ nav > .checkbox {
   display: flex;
   justify-content: center;
   color: #000;
+}
+
+.active {
+  background-color: aquamarine;
 }
 
 .hamburger-container {
@@ -157,7 +161,16 @@ nav > .checkbox:checked ~ .nav-links {
   margin-bottom: 2em;
 }
 
-.item-card {
+.item-card-not-selected {
+  margin: 0.5em 1em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+.item-card-selected {
+  background-color: rgb(134, 208, 134);
   margin: 0.5em 1em;
   padding: 0.5em 1em;
   cursor: pointer;
@@ -200,6 +213,10 @@ nav > .checkbox:checked ~ .nav-links {
   }
 
   .nav > .checkbox {
+    display: none;
+  }
+
+  .mobile-social-icons {
     display: none;
   }
 
@@ -285,7 +302,13 @@ nav > .checkbox:checked ~ .nav-links {
     flex-wrap: wrap;
   }
 
-  .item-card {
+  .item-card-not-selected {
+    flex-shrink: 1;
+    max-width: 45%;
+  }
+
+  .item-card-selected {
+    background-color: rgb(134, 208, 134);
     flex-shrink: 1;
     max-width: 45%;
   }

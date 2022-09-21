@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import FeaturedCard from "../components/FeaturedCard";
 import ItemCard from "../components/ItemCard";
 
 function Books() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const featuredBooks = [];
   const books = [];
 
   useEffect(() => {
@@ -35,11 +33,13 @@ function Books() {
 
   if (!loading) {
     for (let i = 0; i < data.items.length; i++) {
-      if (data[i].volumeInfo.printType === "BOOK") {
-        books.push(data[i]);
+      if (data.items[i].volumeInfo.printType === "BOOK") {
+        books.push(data.items[i]);
       }
     }
   }
+
+  console.log(books);
 
   return (
     <div className="container">
@@ -49,25 +49,8 @@ function Books() {
         praesentium quidem cupiditate, voluptatum omnis? Omnis deserunt neque
         perspiciatis adipisci unde, numquam odit.
       </p>
-      {featuredBooks > 0 && books > 0 ? (
+      {books ? (
         <section className="books-container">
-          <section className="featured-container">
-            <h2>Featured</h2>
-            <div className="featured-cards">
-              {featuredBooks.map((card) => {
-                return (
-                  <FeaturedCard
-                    title={card.volumeInfo.title}
-                    key={card.volumeInfo.title}
-                    authors={card.volumeInfo.authors}
-                    pages={card.volumeInfo.pageCount}
-                    image={card.volumeInfo.imageLinks.thumbnail}
-                    description={card.volumeInfo.description}
-                  />
-                );
-              })}
-            </div>
-          </section>
           <section className="items-container">
             <div className="items-cards">
               {books.map((card) => {

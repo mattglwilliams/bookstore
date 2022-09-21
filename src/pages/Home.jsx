@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import FeaturedCard from "../components/FeaturedCard";
+import ItemCard from "../components/ItemCard";
 import "../App.css";
 
 function Home() {
@@ -40,10 +42,6 @@ function Home() {
     }
   }
 
-  const handleClick = (event) => {
-    event.currentTarget.classList.toggle("bg-salmon");
-  };
-
   return (
     <div className="container">
       <p className="category-content">
@@ -58,28 +56,14 @@ function Home() {
           <div className="featured-cards">
             {featuredItems.map((card) => {
               return (
-                <button
-                  className="featured-card"
+                <FeaturedCard
+                  title={card.volumeInfo.title}
                   key={card.volumeInfo.title}
-                  onClick={handleClick}
-                >
-                  <img
-                    src={card.volumeInfo.imageLinks.thumbnail}
-                    alt="This is an image of the book"
-                  />
-                  <h3>{card.volumeInfo.title}</h3>
-                  <p className="featured-authors">
-                    Authors: {card.volumeInfo.authors}
-                  </p>
-                  <p className="featured-pages">
-                    Pages: {card.volumeInfo.pageCount}
-                  </p>
-                  <p className="featured-description">
-                    {card.volumeInfo.description
-                      ? card.volumeInfo.description.substring(0, 140) + "..."
-                      : "No description"}
-                  </p>
-                </button>
+                  image={card.volumeInfo.imageLinks.thumbnail}
+                  description={card.volumeInfo.description}
+                  authors={card.volumeInfo.authors}
+                  pages={card.volumeInfo.pageCount}
+                />
               );
             })}
           </div>
@@ -88,26 +72,14 @@ function Home() {
           <div className="items-cards">
             {remainingItems.map((card) => {
               return (
-                <button className="item-card" key={card.volumeInfo.title}>
-                  <img
-                    src={card.volumeInfo.imageLinks.thumbnail}
-                    alt="This is an image of the Item"
-                  />
-                  <div className="item-content">
-                    <h3>{card.volumeInfo.title}</h3>
-                    <p className="item-authors">
-                      Authors: {card.volumeInfo.authors}
-                    </p>
-                    <p className="item-pages">
-                      Pages: {card.volumeInfo.pageCount}
-                    </p>
-                    <p className="item-description">
-                      {card.volumeInfo.description
-                        ? card.volumeInfo.description.substring(0, 140) + "..."
-                        : "No description"}
-                    </p>
-                  </div>
-                </button>
+                <ItemCard
+                  title={card.volumeInfo.title}
+                  key={card.volumeInfo.title}
+                  image={card.volumeInfo.imageLinks.thumbnail}
+                  description={card.volumeInfo.description}
+                  authors={card.volumeInfo.authors}
+                  pages={card.volumeInfo.pageCount}
+                />
               );
             })}
           </div>
